@@ -638,6 +638,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
+
 }
 
 .form-group label {
@@ -650,7 +651,7 @@
 .form-group select,
 .form-group textarea {
   padding: 0.75rem;
-  border: 2px solid #e5e5e5;
+  border: 2px solid #e0e0e0;
   border-radius: 5px;
   font-size: 1rem;
   transition: border-color 0.3s;

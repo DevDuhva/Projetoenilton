@@ -125,7 +125,7 @@
                     <p>Preencha as informações abaixo para anunciar seu imóvel</p>
                 </div>
                 
-                <form class="sell-form" id="sellForm">
+                <form class="sell-form" id="sellForm" action="venda.php" method="POST" enctype="multipart/form-data">
                     <!-- Basic Information -->
                     <div class="form-section">
                         <h3><i class="fas fa-info-circle"></i> Informações Básicas</h3>
@@ -133,14 +133,14 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="propertyTitle">Título do Anúncio *</label>
-                                <input type="text" id="propertyTitle" required placeholder="Ex: Apartamento 3 quartos com vista para o mar">
+                                <input type="text" id="propertyTitle" name="propertyTitle" required placeholder="Ex: Apartamento 3 quartos com vista para o mar">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="sellPropertyType">Tipo de Imóvel *</label>
-                                <select id="sellPropertyType" required>
+                                <select id="sellPropertyType" name="sellPropertyType" required>
                                     <option value="">Selecione o tipo</option>
                                     <option value="apartamento">Apartamento</option>
                                     <option value="casa">Casa</option>
@@ -152,14 +152,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="sellPrice">Preço de Venda *</label>
-                                <input type="text" id="sellPrice" required placeholder="R$ 500.000" class="price-input">
+                                <input type="text" id="sellPrice" name="sellPrice" required placeholder="R$ 500.000" class="price-input">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="sellBedrooms">Quartos</label>
-                                <select id="sellBedrooms">
+                                <select id="sellBedrooms" name="sellBedrooms">
                                     <option value="">Selecione</option>
                                     <option value="1">1 quarto</option>
                                     <option value="2">2 quartos</option>
@@ -170,7 +170,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="sellBathrooms">Banheiros</label>
-                                <select id="sellBathrooms">
+                                <select id="sellBathrooms" name="sellBathrooms">
                                     <option value="">Selecione</option>
                                     <option value="1">1 banheiro</option>
                                     <option value="2">2 banheiros</option>
@@ -180,7 +180,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="sellArea">Área (m²)</label>
-                                <input type="number" id="sellArea" placeholder="120">
+                                <input type="number" id="sellArea" name="sellArea" placeholder="120">
                             </div>
                         </div>
                     </div>
@@ -192,18 +192,18 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="sellAddress">Endereço Completo *</label>
-                                <input type="text" id="sellAddress" required placeholder="Rua, número, bairro">
+                                <input type="text" id="sellAddress" name="sellAddress" required placeholder="Rua, número, bairro">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="sellCity">Cidade *</label>
-                                <input type="text" id="sellCity" required placeholder="São Paulo">
+                                <input type="text" id="sellCity" name="sellCity" required placeholder="São Paulo">
                             </div>
                             <div class="form-group">
                                 <label for="sellState">Estado *</label>
-                                <select id="sellState" required>
+                                <select id="sellState" name="sellState" required>
                                     <option value="">Selecione</option>
                                     <option value="SP">São Paulo</option>
                                     <option value="RJ">Rio de Janeiro</option>
@@ -213,7 +213,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="sellZipCode">CEP *</label>
-                                <input type="text" id="sellZipCode" required placeholder="00000-000">
+                                <input type="text" id="sellZipCode" name="sellZipCode" required placeholder="00000-000">
                             </div>
                         </div>
                     </div>
@@ -224,7 +224,7 @@
                         
                         <div class="form-group">
                             <label for="sellDescription">Descrição Detalhada *</label>
-                            <textarea id="sellDescription" rows="6" required placeholder="Descreva seu imóvel: características, diferenciais, proximidades, etc."></textarea>
+                            <textarea id="sellDescription" name="sellDescription" rows="6" required placeholder="Descreva seu imóvel: características, diferenciais, proximidades, etc."></textarea>
                         </div>
                     </div>
                     
@@ -285,7 +285,7 @@
                                 <i class="fas fa-cloud-upload-alt"></i>
                                 <h4>Adicione fotos do seu imóvel</h4>
                                 <p>Arraste e solte as imagens aqui ou clique para selecionar</p>
-                                <input type="file" id="photoInput" multiple accept="image/*" hidden>
+                                <input type="file" id="photoInput" name="photoInput[]" multiple accept="image/*" hidden>
                                 <button type="button" class="btn-upload" id="selectPhotos">
                                     Selecionar Fotos
                                 </button>
@@ -301,22 +301,22 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="ownerName">Nome Completo *</label>
-                                <input type="text" id="ownerName" required placeholder="Seu nome completo">
+                                <input type="text" id="ownerName" name="ownerName" required placeholder="Seu nome completo">
                             </div>
                             <div class="form-group">
                                 <label for="ownerEmail">E-mail *</label>
-                                <input type="email" id="ownerEmail" required placeholder="seu@email.com">
+                                <input type="email" id="ownerEmail" name="ownerEmail" required placeholder="seu@email.com">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="ownerPhone">Telefone *</label>
-                                <input type="tel" id="ownerPhone" required placeholder="(11) 99999-9999">
+                                <input type="tel" id="ownerPhone" name="ownerPhone" required placeholder="(11) 99999-9999">
                             </div>
                             <div class="form-group">
                                 <label for="ownerWhatsapp">WhatsApp</label>
-                                <input type="tel" id="ownerWhatsapp" placeholder="(11) 99999-9999">
+                                <input type="tel" id="ownerWhatsapp" name="ownerWhatsapp" placeholder="(11) 99999-9999">
                             </div>
                         </div>
                     </div>
@@ -325,13 +325,13 @@
                     <div class="form-section">
                         <div class="terms-section">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="acceptTerms" required>
+                                <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
                                 <span class="checkmark"></span>
                                 Aceito os <a href="#" class="gold">termos de uso</a> e <a href="#" class="gold">política de privacidade</a>
                             </label>
                             
                             <label class="checkbox-label">
-                                <input type="checkbox" id="acceptContact">
+                                <input type="checkbox" id="acceptContact" name="acceptContact">
                                 <span class="checkmark"></span>
                                 Aceito receber contatos de interessados no meu imóvel
                             </label>
